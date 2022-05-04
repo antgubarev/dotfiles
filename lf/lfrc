@@ -1,0 +1,33 @@
+# interpreter for shell commands
+set shell sh
+
+# global option
+set hidden!
+set previewer ~/.config/lf/bat.sh
+
+# delete
+#cmd trash %set -f; mv $fx ~/.trash
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ $ans = "y" ] && mv $fx ~/.trash
+}}
+
+map d delete
+
+# bookmarks
+cmd bookmark_jump ${{
+    res="$(cat $LF_BOOKMARK_PATH/$(ls $LF_BOOKMARK_PATH | fzf))"
+    lf -remote "send $id cd \"$res\""
+}}
+
+map bj bookmark_jump
+
+cmd bookmark_create ${{
+    read ans
+    echo "$PWD" > "$LF_BOOKMARK_PATH/$ans"
+}}
+
+map bc bookmark_create
