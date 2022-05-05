@@ -10,6 +10,7 @@ call plug#begin()
 	Plug 'j-hui/fidget.nvim'
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
+	Plug 'rafamadriz/friendly-snippets'
 	" For vsnip users.
 	" Plug 'hrsh7th/cmp-vsnip'
 	" Plug 'hrsh7th/vim-vsnip'
@@ -39,8 +40,6 @@ call plug#begin()
 	
 call plug#end()
 
-" colorscheme darkplus
-
 lua << EOF
 	require "user.options"
 	require "user.keymaps"
@@ -51,6 +50,7 @@ lua << EOF
 	require "user.tree"
 	require "user.neoscroll"
 	require "user.luasnip"
+	require "user.lsp"
 	require "user.cmp"
 	require "user.telescope"
 	require "user.test"
@@ -60,5 +60,4 @@ lua << EOF
 	require "user.gitsigns"
 	require "user.autopairs"
 	require "user.comment"
-	require "antgubarev.tags"
 EOF
