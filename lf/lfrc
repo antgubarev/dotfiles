@@ -19,15 +19,16 @@ map d delete
 
 # bookmarks
 cmd bookmark_jump ${{
-    res="$(cat $LF_BOOKMARK_PATH/$(ls $LF_BOOKMARK_PATH | fzf))"
-    lf -remote "send $id cd \"$res\""
+	path=$(ls $LF_BOOKMARK_PATH | fzf)
+   res="$(cat $LF_BOOKMARK_PATH/$path)"
+   lf -remote "send $id cd \"$res\""
 }}
 
 map bj bookmark_jump
 
 cmd bookmark_create ${{
-    read ans
-    echo "$PWD" > "$LF_BOOKMARK_PATH/$ans"
+   read ans
+   echo $PWD > "$LF_BOOKMARK_PATH/$ans"
 }}
 
 map bc bookmark_create

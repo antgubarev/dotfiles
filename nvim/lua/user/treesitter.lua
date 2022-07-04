@@ -13,6 +13,7 @@ require'nvim-treesitter.configs'.setup {
 		"typescript",
 		"vim",
 		"yaml",
+		"python"
 	},
 
   -- Install languages synchronously (only applied to `ensure_installed`)

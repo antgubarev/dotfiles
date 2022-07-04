@@ -1,9 +1,13 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-require('telescope').setup({
-	-- defaults = require("telescope.themes").get_dropdown({}),
-})
+local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+	initial_mode = "visual",
+  }
+}
+
 require('telescope').load_extension("fzf")
 require('telescope').load_extension("git_worktree")
 

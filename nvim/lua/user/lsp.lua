@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	buf_set_keymap("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<CR>", opts)
+	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
 	if client.resolved_capabilities.document_formatting then
@@ -35,8 +35,21 @@ end
 
   -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig')['gopls'].setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+require('lspconfig')['pyright'].setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+require('lspconfig')['bashls'].setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+require('lspconfig')['sqlls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
