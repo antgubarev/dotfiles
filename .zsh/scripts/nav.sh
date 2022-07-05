@@ -1,13 +1,19 @@
 #!/bin/bash
 
 function cdp() {
-	local path
-	pp=$PROJECT_PATH
-	path=eval $(ls "$pp" | fzf)
-	
-	cd "$PROJECT_PATH/$path"
+	local dirPathes
+	IFS=';' 
+	read -A PD <<< "$PROJECT_PATHES"
+	for i in "${PD[@]}"; 
+	do
+		local dd=$(ls -d $HOME/$i/*)
+		dirPathes=("${dirPathes} ${dd}")
+	done
 
-	changes=$(git status --porcelain)
+	local targerDir=$(echo $dirPathes | fzf)
+	cd $targerDir
+
+	local changes=$(git status --porcelain)
 	if [ -z "$changes" ]
 	then
 		git checkout master

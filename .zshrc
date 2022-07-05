@@ -4,6 +4,11 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
+# alias
+alias czrc="nvim ~/.zshrc"
+alias czsh="nvim ~/.zsh/"
+alias cvm="nvim ~/.config/nvim/"
+
 # secrets
 source ~/.zsh/.env.sh
 

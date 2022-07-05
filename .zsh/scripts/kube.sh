@@ -1,6 +1,6 @@
 #!/bin/bash
 
-kdep() {
+kdes() {
 	local namespace
 	namespace=$(kubectl get ns --no-headers -o custom-columns=":metadata.name" | fzf )
 
