@@ -37,7 +37,6 @@ call plug#begin()
 	Plug 'ThePrimeagen/git-worktree.nvim'
 	Plug 'TimUntersberger/neogit'
 	Plug 'lewis6991/gitsigns.nvim'
-	Plug 'nvim-lua/plenary.nvim'
 	Plug 'sindrets/diffview.nvim'
 
 	" Edit

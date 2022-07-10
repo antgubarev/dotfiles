@@ -2,17 +2,31 @@ local utils = {}
 
 function utils.getCurrentParagraph()
 	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-	local linesTable = vim.api.nvim_buf_get_lines(0, row-1, vim.api.nvim_buf_line_count(0), false) or {""}
-	local lines = ""
-	for k,v in pairs(linesTable) do
-		if v == "" then
-			lines = vim.api.nvim_buf_get_lines(0, row-1, row+k-1, false)
-			break
-		end
+	
+	-- search forward 
+	local rowi = row
+	while true do
+		local lastLine = vim.api.nvim_buf_get_lines(0, rowi, rowi+1, false) or {""}
+		if lastLine[1] == "" then break end
+		if lastLine[1] == nil then break end
+		rowi = rowi + 1
 	end
 
+	-- search back 
+	local rowj = row
+	while true do
+		local lastLine = vim.api.nvim_buf_get_lines(0, rowj, rowj+1, false) or {""}
+		if lastLine[1] == "" then break end
+		if lastLine[1] == nil then break end
+		rowj = rowj - 1
+		if rowj < 1 then break end
+	end
+
+	local lines = vim.api.nvim_buf_get_lines(0, rowj+1, rowi, false)
 	local result = table.concat(lines, " ")
-	return result:gsub('[%c]', '')
+	result = result:gsub('[%c]', '')
+	
+	return result
 end
 
 function utils.keymap(mode, lhs, rhs)

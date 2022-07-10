@@ -3,6 +3,8 @@ local utils = require("apg.utils")
 function execCurl()
 	local command = utils.getCurrentParagraph()
 
+	print("c", command)
+
 	local Terminal = require('toggleterm.terminal').Terminal
 	local run = Terminal:new({
 		cmd = command,
