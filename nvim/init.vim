@@ -75,5 +75,6 @@ lua << EOF
 	require "user.autosave"
 	require "user.terminal"
 	require "apg.curl.main"
+	require "apg.sql.main"
 EOF
 

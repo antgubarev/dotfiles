@@ -1,7 +1,9 @@
 local utils = require("apg.utils")
 
-function execCurl()
-	local command = utils.getCurrentParagraph()
+function execPgSql()
+	local query = utils.getCurrentParagraph()
+	local cfg = vim.api.nvim_buf_get_lines(0, 0, 1, false)
+	local command = 'psql '..cfg[1]..' -c "'..query..'"'
 
 	local Terminal = require('toggleterm.terminal').Terminal
 	local run = Terminal:new({
@@ -15,8 +17,7 @@ function execCurl()
 	})
 
 	run:toggle()
-
 end
 
-utils.keymap("n", "<S-e>", "<cmd>lua execCurl()<CR>")
+utils.keymap("n", "<S-q>", "<cmd>lua execPgSql()<CR>")
 
