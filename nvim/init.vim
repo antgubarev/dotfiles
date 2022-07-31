@@ -11,10 +11,15 @@ call plug#begin()
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'rafamadriz/friendly-snippets'
+	Plug 'ray-x/lsp_signature.nvim'
+	
+	" Debug
+	Plug 'mfussenegger/nvim-dap'
+	Plug 'leoluz/nvim-dap-go'
+	Plug 'rcarriga/nvim-dap-ui'
 
 	" Base
 	Plug 'folke/todo-comments.nvim'
-	Plug 'Pocco81/AutoSave.nvim'
 	Plug 'akinsho/toggleterm.nvim'
 
 	" View 
@@ -60,6 +65,7 @@ lua << EOF
 	require "user.luasnip"
 	require "user.lsp"
 	require "user.cmp"
+	require "user.debug"
 	require "user.telescope"
 	require "user.test"
 	require "user.diffview"
@@ -71,9 +77,8 @@ lua << EOF
 	require "user.comment"
 	require "user.telekasten"
 	require "user.todo"
-	require "user.autosave"
 	require "user.terminal"
-	require "apg.curl.main"
-	require "apg.sql.main"
+	require "selfext.curl.main"
+	require "selfext.sql.main"
 EOF
 

@@ -6,11 +6,12 @@ function cdp() {
 	read -A PD <<< "$PROJECT_PATHES"
 	for i in "${PD[@]}"; 
 	do
-		local dd=$(ls -d $HOME/$i/*)
-		dirPathes=("${dirPathes} ${dd}")
+		local dd=$(exa -d $HOME/$i/*)
+		dirPathes=("${dirPathes[@]}" "\n" "${dd[@]}")
 	done
 
-	local targerDir=$(echo $dirPathes | fzf)
+	local targerDir=$(echo ${dirPathes} | fzf)
+	targerDir=$(echo ${targerDir} | xargs)
 	cd $targerDir
 
 	local changes=$(git status --porcelain)

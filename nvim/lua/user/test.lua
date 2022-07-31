@@ -1,5 +1,6 @@
 vim.api.nvim_set_var("test#strategy", "neovim")
 vim.api.nvim_set_var("test#neovim#start_normal", 1)
+vim.api.nvim_set_var("test#echo_command", 1)
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap

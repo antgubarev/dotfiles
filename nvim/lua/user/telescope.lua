@@ -5,13 +5,14 @@ local actions = require('telescope.actions')
 require('telescope').setup{
   defaults = {
 	initial_mode = "visual",
+	file_ignore_patterns = {"node_modules", "vendor", ".git"}
   }
 }
 
 require('telescope').load_extension("fzf")
 require('telescope').load_extension("git_worktree")
 
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>of", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)

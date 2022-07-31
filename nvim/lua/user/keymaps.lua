@@ -24,7 +24,3 @@ keymap("n", "<leader>cp", ":let @+=expand('%:p')<CR>", opts)
 -- search
 keymap("n", "<leader>nn", ":nohlsearch<CR>", opts)
 keymap("v", "<C-r>", "\"hy:%s/<C-r>h//gc<left><left><left>", opts)
-
--- terminal
-keymap("t", "<C-o>", [[<C-\><C-n>]], opts)
-

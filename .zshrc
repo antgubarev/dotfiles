@@ -46,5 +46,28 @@ _fzf_compgen_dir() {
   command fd --type d --hidden --follow --exclude .git --exclude node_modules . "$1"
 }
 
+# zsh-completions
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+
+	 zstyle ':completion:*' menu select  # Nice styling for completion
+	 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'  # Case insensitive completion
+	 zstyle ':completion:*' expand prefix suffix  # Do not require typing beginning of filename for completion
+
+    zstyle ':completion:*:*:*:*:descriptions' format '-- %d --'
+    zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+	 zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+
+	 # Completion caching
+	 zstyle ':completion:*' use-cache on
+	 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+fi
+
 # direnv
 eval "$(direnv hook zsh)"
+
+# completions
+source ~/.zsh/completion/kubectl 
