@@ -6,21 +6,24 @@ call plug#begin()
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
-	Plug 'vim-test/vim-test'
+	" Plug 'vim-test/vim-test'
 	Plug 'j-hui/fidget.nvim'
 	Plug 'L3MON4D3/LuaSnip'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'rafamadriz/friendly-snippets'
 	Plug 'ray-x/lsp_signature.nvim'
 	
-	" Debug
+	" Debug and test
 	Plug 'mfussenegger/nvim-dap'
 	Plug 'leoluz/nvim-dap-go'
 	Plug 'rcarriga/nvim-dap-ui'
+	Plug 'nvim-neotest/neotest'
+	Plug 'nvim-neotest/neotest-go'
 
 	" Base
 	Plug 'folke/todo-comments.nvim'
 	Plug 'akinsho/toggleterm.nvim'
+	Plug 'antoinemadec/FixCursorHold.nvim'
 
 	" View 
 	Plug 'nvim-lualine/lualine.nvim'
@@ -42,7 +45,7 @@ call plug#begin()
 	Plug 'ThePrimeagen/git-worktree.nvim'
 	Plug 'TimUntersberger/neogit'
 	Plug 'lewis6991/gitsigns.nvim'
-	Plug 'sindrets/diffview.nvim'
+	" Plug 'sindrets/diffview.nvim'
 
 	" Edit
 	Plug 'tpope/vim-surround'
@@ -55,6 +58,7 @@ call plug#end()
 
 lua << EOF
 	require "user.options"
+	require "user.appearence"
 	require "user.keymaps"
 	require "user.lualine"
 	require "user.treesitter"
@@ -68,11 +72,9 @@ lua << EOF
 	require "user.debug"
 	require "user.telescope"
 	require "user.test"
-	require "user.diffview"
-	require "user.neogit"
+	require "user.git"
 	require "user.iblankline"
 	require "user.fidget"
-	require "user.gitsigns"
 	require "user.autopairs"
 	require "user.comment"
 	require "user.telekasten"

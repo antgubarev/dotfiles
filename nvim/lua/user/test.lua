@@ -1,12 +1,16 @@
-vim.api.nvim_set_var("test#strategy", "neovim")
-vim.api.nvim_set_var("test#neovim#start_normal", 1)
-vim.api.nvim_set_var("test#echo_command", 1)
+require("neotest").setup({
+  adapters = {
+	 require("neotest-go")({
+      experimental = { 
+        test_table = true,
+      },
+      args = { "-v", "-count=1", "-timeout=60s" }
+    })
+  },
+})
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
-keymap("n", "<leader>ttn", ":TestNearest -v<CR>", opts)
-keymap("n", "<leader>ttf", ":TestFile -v<CR>g", opts)
--- keymap("n", "<leader>tts", ":TestSuite -v<CR>g", opts)
--- keymap("n", "<leader>ttl", ":TestLast -v<CR>g", opts)
--- keymap("n", "<leader>ttv", ":TestVisit -v<CR>g", opts)
+local k = require("selfext.utils").keymap
+k('n', '<leader>tt', ':lua require("neotest").run.run()<CR>')
+k('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+k('n', '<leader>to', ':lua require("neotest").output.open({ short = false })<CR>')
+k('n', '<leader>ts', ':lua require("neotest").summary.toggle()<CR>')

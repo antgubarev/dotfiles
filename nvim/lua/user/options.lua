@@ -33,7 +33,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.g.vscode_style = "dark"
+-- vim.g.vscode_style = "dark"
 -- vim.g.vscode_transparent = 1
 vim.cmd([[
 	set termguicolors
