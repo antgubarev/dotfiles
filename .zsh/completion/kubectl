@@ -1,0 +1,21 @@
+#compdef foobar
+
+hello() {
+  echo "Hello $1!"  
+}
+
+function _hello(){
+    local state 
+    _arguments '1: :(cat head)' '2: :->log' '3: :->cache'
+
+    case $state in
+        log)
+            _describe 'command' "($(ls $1))"
+            ;;
+        cache)
+            compadd one two
+            ;;
+    esac
+}
+
+compdef _hello hello

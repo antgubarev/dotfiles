@@ -13,7 +13,6 @@ require('telescope').load_extension("fzf")
 require('telescope').load_extension("git_worktree")
 
 keymap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>of", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>lg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)

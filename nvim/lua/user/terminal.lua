@@ -4,5 +4,4 @@ require("toggleterm").setup({
 
 local k = require("selfext.utils").keymap
 k("n", "ttm", ":ToggleTerm<CR>")
---- k("t", "<C-o>", [[<C-\><C-n>]])
 k("t", "<C-o>", [[<C-\><C-n>]])
