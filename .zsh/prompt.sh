@@ -4,7 +4,14 @@ git_branch_name() {
   then
     :
   else
-    echo ' - ('$branch')'
+    isChanges="*"
+    local changes=$(git status --porcelain)
+    if [ -z "$changes" ]
+    then
+      isChanges=""
+    fi
+
+    echo ' - ('$branch$isChanges')'
   fi
 }
 
