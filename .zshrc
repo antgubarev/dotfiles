@@ -12,8 +12,8 @@ source ~/.zsh/.env.sh
 # abbr
 source /usr/local/share/zsh-abbr/zsh-abbr.zsh
 
-for script in ~/.zsh/scripts/*; do
-  source $script
+for function in ~/.zsh/functions/*; do
+  source $function
 done
 
 # psql
