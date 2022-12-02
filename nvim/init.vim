@@ -12,7 +12,8 @@ call plug#begin()
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'rafamadriz/friendly-snippets'
 	Plug 'ray-x/lsp_signature.nvim'
-	
+	Plug 'chr4/nginx.vim'
+
 	" Debug and test
 	Plug 'mfussenegger/nvim-dap'
 	Plug 'leoluz/nvim-dap-go'
@@ -57,7 +58,9 @@ call plug#begin()
 call plug#end()
 
 lua << EOF
-	require "user.options"
+		
+
+require "user.options"
 	require "user.appearence"
 	require "user.keymaps"
 	require "user.lualine"

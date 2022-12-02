@@ -65,6 +65,3 @@ fi
 
 # direnv
 eval "$(direnv hook zsh)"
-
-# completions
-source ~/.zsh/completion/kubectl 

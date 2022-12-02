@@ -11,7 +11,7 @@ git_branch_name() {
       isChanges=""
     fi
 
-    echo ' - ('$branch$isChanges')'
+    echo '('$branch$isChanges')'
   fi
 }
 
@@ -22,8 +22,8 @@ preexec() {
 precmd() {
   local cmd_end="$SECONDS"
   elapsed=$((cmd_end-cmd_start))
-  export RPROMPT="%F{226}${elapsed}ms %f" 
+  export RPROMPT="%F{226}${elapsed}ms%f %B%F{75}$(git_branch_name)%f%b" 
 }
 
 setopt prompt_subst
-PROMPT='%2~%B%F{75}$(git_branch_name) >%f%b '
+PROMPT='%2~ %B%F{75}>%f%b '

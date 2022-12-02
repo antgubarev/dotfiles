@@ -1,10 +1,5 @@
 local opts = { noremap=true, silent=true }
 
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -17,11 +12,15 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<leader>D", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+	buf_set_keymap("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+	buf_set_keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	buf_set_keymap("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", opts)
+	buf_set_keymap("n", "<leader>dN", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", opts)
 
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[
@@ -41,18 +40,27 @@ require('lspconfig')['gopls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require('lspconfig')['pyright'].setup {
 	capabilities = capabilities,
-	on_attach = on_attach
+	on_attach = on_attach,
+	settings = {
+		python = {
+			venvPath = "/Users/antgubarev/Library/Caches/pypoetry/virtualenvs"
+		}
+	}
 }
+
 require('lspconfig')['bashls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require('lspconfig')['sqlls'].setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
+
 require('lspconfig')['sumneko_lua'].setup = {
 	capabilities = capabilities,
 	on_attach = on_attach,

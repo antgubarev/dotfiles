@@ -17,8 +17,8 @@ keymap("n", "<leader>w", ":bd<CR>", opts)
 keymap("n", "<leader>W", ":bd!<CR>", opts)
 
 -- clipboard
-keymap("v", "<leader>y", '"+y', opts)
-keymap("v", "<leader>Y", '"+Y', opts)
+keymap("v", "y", '"+y', opts)
+keymap("v", "Y", '"+Y', opts)
 keymap("n", "<leader>cp", ":let @+=expand('%:p')<CR>", opts)
 
 -- search

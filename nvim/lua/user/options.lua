@@ -3,6 +3,7 @@ local options = {
 	shiftwidth = 3,
 	softtabstop = 3,
 	number = true,
+	relativenumber = true,
 	cursorline = true,
 	completeopt = { "menu", "menuone", "noselect", "noinsert" },
 	encoding = "utf-8",
@@ -13,7 +14,7 @@ local options = {
 	scrolloff = 15,
 	undofile = true,
 	undodir = os.getenv("HOME") .. "/.config/nvim/undodir",
-	ignorecase = true,	
+	ignorecase = true,
 	incsearch = true,
 	ruler = true,
 	wildmenu = true,
@@ -33,8 +34,6 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- vim.g.vscode_style = "dark"
--- vim.g.vscode_transparent = 1
 vim.cmd([[
 	set termguicolors
 	lan en_US.UTF-8
