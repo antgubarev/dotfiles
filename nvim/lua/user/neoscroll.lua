@@ -13,3 +13,5 @@ t['zz']    = {'zz', {'250'}}
 t['zb']    = {'zb', {'250'}}
 
 require('neoscroll.config').set_mappings(t)
+
+require('hop')

@@ -35,7 +35,7 @@ call plug#begin()
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'Mofiqul/vscode.nvim'
-	
+
 	" Navigation
 	Plug 'kyazdani42/nvim-tree.lua'
 	Plug 'nvim-lua/plenary.nvim'
@@ -44,6 +44,7 @@ call plug#begin()
 	Plug 'karb94/neoscroll.nvim'
    Plug 'akinsho/bufferline.nvim'
 	Plug 'preservim/tagbar'
+	Plug 'phaazon/hop.nvim'
 
 	" Git
 	Plug 'ThePrimeagen/git-worktree.nvim'
@@ -61,9 +62,7 @@ call plug#begin()
 call plug#end()
 
 lua << EOF
-		
-
-require "user.options"
+	require "user.options"
 	require "user.appearence"
 	require "user.keymaps"
 	require "user.lualine"
@@ -71,7 +70,7 @@ require "user.options"
 	require "user.bufferline"
 	require "user.devicons"
 	require "user.tree"
-	require "user.neoscroll"
+	require "user.navigation"
 	require "user.luasnip"
 	require "user.lsp"
 	require "user.cmp"
