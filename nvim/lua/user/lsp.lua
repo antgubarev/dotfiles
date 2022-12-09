@@ -61,6 +61,11 @@ require('lspconfig')['sqlls'].setup {
 	on_attach = on_attach
 }
 
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
 require('lspconfig')['sumneko_lua'].setup = {
 	capabilities = capabilities,
 	on_attach = on_attach,

@@ -1,6 +1,14 @@
 require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+		disable = {},
+	},
+	indent = {
+		enable = true,
+		disable = {},
+	},
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {
+	ensure_installed = {
 		"bash",
 		"dockerfile",
 		"glsl",
@@ -13,15 +21,16 @@ require'nvim-treesitter.configs'.setup {
 		"typescript",
 		"vim",
 		"yaml",
-		"python"
+		"python",
+		"sql"
 	},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = true,
+	sync_install = true,
 
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+	highlight = {
+		 enable = true,
+		 additional_vim_regex_highlighting = false,
+	},
 }
 

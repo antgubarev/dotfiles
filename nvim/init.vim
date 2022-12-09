@@ -13,6 +13,9 @@ call plug#begin()
 	Plug 'rafamadriz/friendly-snippets'
 	Plug 'ray-x/lsp_signature.nvim'
 	Plug 'chr4/nginx.vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'peitalin/vim-jsx-typescript'
+	Plug 'MunifTanjim/prettier.nvim'
 
 	" Debug and test
 	Plug 'mfussenegger/nvim-dap'
@@ -83,6 +86,7 @@ require "user.options"
 	require "user.telekasten"
 	require "user.todo"
 	require "user.terminal"
+	require "user.prettier"
 	require "selfext.curl.main"
 	require "selfext.sql.main"
 EOF

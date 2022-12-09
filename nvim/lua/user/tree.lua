@@ -7,6 +7,13 @@ require'nvim-tree'.setup{
       	quit_on_open = true,
       },
 	},
+	filters = {
+		dotfiles = true,
+	},
+	view = {
+		side = 'right',
+		width = 90,
+	},
 }
 
 keymap("n", "<leader>vv", ":NvimTreeToggle<CR>", opts)
