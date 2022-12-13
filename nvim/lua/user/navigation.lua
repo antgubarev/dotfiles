@@ -9,9 +9,9 @@ t['zb']    = {'zb', {'250'}}
 
 require('neoscroll.config').set_mappings(t)
 
-require('hop').setup({})
-
-local k = require("selfext.utils").keymap
-k("n", "hl", ":HopLine<CR>")
-k("n", "hp", ":HopPattern<CR>")
-k("n", "hw", ":HopWordCurrentLine<CR>")
+-- require('hop').setup({})
+--
+-- local k = require("selfext.utils").keymap
+-- k("n", "hl", ":HopLine<CR>")
+-- k("n", "hp", ":HopPattern<CR>")
+-- k("n", "hw", ":HopWordCurrentLine<CR>")

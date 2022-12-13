@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 			end,
 			group = group,
 		})
-	end	
+	end
 end
 
   -- Setup lspconfig.
@@ -67,8 +67,10 @@ require('lspconfig')['sqlls'].setup {
 }
 
 require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
+   on_attach = on_attach,
+   capabilities = capabilities,
+	filetypes = {"javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"},
+	root_dir = require('lspconfig/util').root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
 }
 
 require('lspconfig')['sumneko_lua'].setup = {

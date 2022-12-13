@@ -13,8 +13,8 @@ call plug#begin()
 	Plug 'rafamadriz/friendly-snippets'
 	Plug 'ray-x/lsp_signature.nvim'
 	Plug 'chr4/nginx.vim'
-	Plug 'pangloss/vim-javascript'
-	Plug 'peitalin/vim-jsx-typescript'
+	" Plug 'pangloss/vim-javascript'
+	" Plug 'peitalin/vim-jsx-typescript'
 	Plug 'MunifTanjim/prettier.nvim'
 
 	" Debug and test

@@ -1,3 +1,1 @@
-local ok, luasnip = pcall(require, "luasnip.loaders.from_vscode")
-
-luasnip.load()
+require("luasnip.loaders.from_vscode").lazy_load()

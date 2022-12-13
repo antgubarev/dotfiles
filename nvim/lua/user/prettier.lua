@@ -8,13 +8,10 @@ prettier.setup({
     "html",
     "javascript",
     "javascriptreact",
-    "json",
     "less",
-    "markdown",
     "scss",
     "typescript",
     "typescriptreact",
     "yaml",
-	 "jsx"
   },
 })
