@@ -1,30 +1,27 @@
 local actions = require('telescope.actions')
 require('telescope').setup{
-  defaults = {
-	initial_mode = "insert",
-	layout_strategy='vertical',
-	layout_config = {
-      -- vertical = {
-      --   mirror = false,
-      -- },
-      width = 0.8,
-      height = 0.99,
-    },
-	theme = "vertical",
-	vimgrep_arguments = {
-		"rg",
-		"-l",
-		"--no-heading",
-		"--line-number",
-		"--column",
-		"--smart-case",
-		"--hidden",
-		"--trim",
-		"--glob=!vendor",
-		"--glob=!.git",
-		"--glob=!node_modules"
-	},
-  }
+	defaults = {
+		initial_mode = "insert",
+		layout_strategy='vertical',
+		layout_config = {
+			width = 0.8,
+			height = 0.99,
+		},
+		theme = "vertical",
+		vimgrep_arguments = {
+			"rg",
+			"-l",
+			"--no-heading",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--hidden",
+			"--trim",
+			"--glob=!vendor",
+			"--glob=!.git",
+			"--glob=!node_modules"
+		},
+	}
 }
 
 require('telescope').load_extension("fzf")
@@ -41,5 +38,3 @@ k("n", "<leader>ft", ":Telescope treesitter<CR>")
 k("n", "<leader>fc", ":Telescope commands<CR>")
 k("n", "<leader>fr", ":Telescope resume<CR>")
 k("n", "<leader>fm", ":Telescope marks<CR>")
-
-
