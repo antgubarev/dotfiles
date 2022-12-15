@@ -1,3 +1,6 @@
+local k = require("selfext.utils").keymap
+
+--- NeoScroll
 require('neoscroll').setup()
 
 local t = {}
@@ -9,9 +12,26 @@ t['zb']    = {'zb', {'250'}}
 
 require('neoscroll.config').set_mappings(t)
 
+--- NvimTree
+require'nvim-tree'.setup{
+	actions = {
+      open_file = {
+      	quit_on_open = true,
+      },
+	},
+	view = {
+		side = 'right',
+		width = 90,
+	},
+}
+
+k("n", "<leader>vv", ":NvimTreeToggle<CR>")
+k("n", "<leader>tf", ":NvimTreeFindFile<CR>")
+
+--- Hop
 -- require('hop').setup({})
 --
--- local k = require("selfext.utils").keymap
+-- 
 -- k("n", "hl", ":HopLine<CR>")
 -- k("n", "hp", ":HopPattern<CR>")
 -- k("n", "hw", ":HopWordCurrentLine<CR>")

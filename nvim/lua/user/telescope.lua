@@ -10,7 +10,6 @@ require('telescope').setup{
 		theme = "vertical",
 		vimgrep_arguments = {
 			"rg",
-			"-l",
 			"--no-heading",
 			"--line-number",
 			"--column",

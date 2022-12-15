@@ -56,9 +56,6 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug 'windwp/nvim-autopairs'
 	Plug 'numToStr/Comment.nvim'
-
-	" Misc
-	Plug 'renerocksai/telekasten.nvim'
 call plug#end()
 
 lua << EOF
@@ -69,7 +66,6 @@ lua << EOF
 	require "user.treesitter"
 	require "user.bufferline"
 	require "user.devicons"
-	require "user.tree"
 	require "user.navigation"
 	require "user.luasnip"
 	require "user.lsp"
@@ -82,7 +78,6 @@ lua << EOF
 	require "user.fidget"
 	require "user.autopairs"
 	require "user.comment"
-	require "user.telekasten"
 	require "user.todo"
 	require "user.terminal"
 	require "user.prettier"
