@@ -43,7 +43,12 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 require('lspconfig')['gopls'].setup {
 	capabilities = capabilities,
-	on_attach = on_attach
+	on_attach = on_attach,
+	settings = {
+		gopls = {
+			buildFlags = {"-tags=integration"}
+		}
+	}
 }
 
 require('lspconfig')['pyright'].setup {

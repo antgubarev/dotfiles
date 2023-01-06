@@ -13,5 +13,6 @@ prettier.setup({
     "typescript",
     "typescriptreact",
     "yaml",
+	 "json"
   },
 })
