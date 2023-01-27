@@ -16,6 +16,9 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+#protobuf
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 # psql
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
