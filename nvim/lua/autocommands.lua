@@ -1,12 +1,12 @@
 -- trim whitespace
-vim.api.nvim_create_autocmd("BufWritePre", {
-	callback = function()
-		vim.cmd([[
-			keeppatterns %s/\s\+$//e
-		]])
-	end,
-	group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	callback = function()
+-- 		vim.cmd([[
+-- 			keeppatterns %s/\s\+$//e
+-- 		]])
+-- 	end,
+-- 	group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true }),
+-- })
 
 -- filetypes
 local ftGroup = vim.api.nvim_create_augroup("filetype_group", { clear = false })
@@ -69,6 +69,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 	end,
 })
 
+-- keymaps
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
 	callback = function()
