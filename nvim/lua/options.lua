@@ -13,7 +13,7 @@ local options = {
 	smartindent = true,
 	scrolloff = 15,
 	undofile = true,
-	undodir = os.getenv("HOME") .. "/.config/nvim/undodir",
+	undodir = os.getenv("HOME") .. "/.config/nvim/.undodir",
 	ignorecase = true,
 	incsearch = true,
 	ruler = true,
@@ -27,7 +27,7 @@ local options = {
 	laststatus = 3,
 	list = true,
 	listchars = "eol:↲,tab:» ,trail:·,extends:<,precedes:>,conceal:┊,nbsp:␣",
-	langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+	langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz",
 }
 
 for k, v in pairs(options) do

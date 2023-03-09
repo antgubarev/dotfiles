@@ -38,7 +38,6 @@ return require("packer").startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("Mofiqul/vscode.nvim")
-	use("rcarriga/nvim-notify")
 
 	-- Navigation
 	use("kyazdani42/nvim-tree.lua")
