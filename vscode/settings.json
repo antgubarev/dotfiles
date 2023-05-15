@@ -1,0 +1,324 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.minimap.enabled": false,
+    "go.autocompleteUnimportedPackages": true,
+    "go.formatTool": "gofmt",
+    "go.logging.level": "verbose",
+    "go.editorContextMenuCommands": {
+        "fillStruct": true,
+        "playground": false
+    },
+    "go.useLanguageServer": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.explorerKind": "external",
+    "security.workspace.trust.untrustedFiles": "open",
+    "go.enableCodeLens": {
+        "runtest": false
+    },
+    "window.newWindowDimensions": "inherit",
+    "go.toolsManagement.autoUpdate": true,
+    "gopls": {
+        "formatting.gofumpt": true,
+        "usePlaceholders": true,
+        "staticcheck": true,
+        "hoverKind": "FullDocumentation",
+        //"ui.completion.usePlaceholders": true,
+        "ui.navigation.importShortcut": "Definition",
+        "ui.semanticTokens": true,
+        "buildFlags": [
+            //"-tags=integration",
+            //"-tags=e2e_test",
+        ]
+    },
+    "go.addTags": {
+        "tags": "json,db",
+        "options": "json=omitempty",
+        "promptForTags": true,
+        "transform": "snakecase"
+    },
+    "window.nativeTabs": true,
+    "files.associations": {
+        "*.tpl": "gohtml",
+        "CHANGELOG": "markdown",
+        "README": "markdown",
+        "Dockerfile*": "dockerfile"
+    },
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        ".history": true,
+    },
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "-v",
+        // "--config=/your/gosrc/folder/.golangci.yml", // for golangci-lint
+        // "--config=/your/gosrc/folder/.revive.toml",  // for revive
+    ],
+    "go.lintOnSave": "package",
+    "go.coverageOptions": "showUncoveredCodeOnly",
+    "go.coverOnTestPackage": true,
+    "go.testFlags": [
+        "-v",
+        "-cover",
+        "-count=1", // enable this to disable test caching
+    ],
+    "[go]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        "editor.defaultFormatter": "golang.go",
+        "editor.formatOnSave": true,
+        // Optional: disable snippets with 'none', as they conflict with completion ranking.
+        "editor.snippetSuggestions": "inline",
+    },
+    "[go.mod]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        "editor.formatOnSave": true,
+    },
+    "diffEditor.codeLens": true,
+    "editor.cursorStyle": "underline",
+    "editor.autoClosingDelete": "never",
+    "editor.autoIndent": "brackets",
+    "editor.hover.delay": 600,
+    "editor.linkedEditing": true,
+    "editor.renderControlCharacters": true,
+    "editor.renderLineHighlight": "all",
+    "editor.scrollbar.horizontal": "visible",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "workbench.tips.enabled": false,
+    "workbench.view.alwaysShowHeaderActions": true,
+    "editor.guides.bracketPairs": true,
+    "[yaml]": {
+        "editor.autoIndent": "full"
+    },
+    "[sql]": {
+        "editor.defaultFormatter": "mtxr.sqltools"
+    },
+    "local-history.daysLimit": 10,
+    "local-history.exclude": [
+        "**/.history/**",
+        "**/.vscode/**",
+        "**/node_modules/**",
+        "**/typings/**",
+        "**/out/**",
+        "**/Code/User/**",
+        "**/vendor/**"
+    ],
+    // "multiCommand.commands": [
+    //     {
+    //         "key": "Enter",
+    //         "command": "extension.multiCommand.execute",
+    //         "args": {
+    //             "sequence": [
+    //                 "filesExplorer.openFilePreserveFocus",
+    //                 "workbench.action.closeSidebar"
+    //             ]
+    //         },
+    //         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
+    //     },
+    // ],
+    "editor.hover.enabled": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "L"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n",
+                "n"
+            ],
+            "commands": [
+                ":nohl",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor",
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "n"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "v",
+                "v"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "N"
+            ],
+            "commands": [
+                "workbench.action.closeSidebar"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "l"
+            ],
+            "commands": [
+                "search.action.focusSearchList"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.terminal.focus"
+            ]
+        },
+        {
+            "before": [
+                "<C-a>",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.switchWindow"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "t"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "l"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.scroll": 10,
+    "vim.smartRelativeLine": true,
+    "vim.visualModeKeyBindings": [],
+    "vim.statusBarColors.easymotionmode": "#007acc",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.replace": "underline",
+    // ---
+    "editor.matchBrackets": "near",
+    "editor.bracketPairColorization.enabled": false,
+    "workbench.sideBar.location": "right",
+    "editor.lineNumbers": "relative",
+    "editor.smoothScrolling": true,
+    "extensions.ignoreRecommendations": true,
+    "vim.autoindent": false,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+}
