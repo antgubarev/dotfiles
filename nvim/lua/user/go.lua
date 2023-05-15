@@ -78,7 +78,7 @@ local function restart(name)
 			name = name,
 		}))
 	do
-		vim.notify("Restarting " .. client.name .. "...")
+		print("Restarting " .. client.name .. "...")
 		client.stop()
 		vim.defer_fn(function()
 			configs[client.name].launch()
@@ -87,7 +87,7 @@ local function restart(name)
 end
 
 local function tidy()
-	vim.notify("Running `go mod tidy`...")
+	print("Running `go mod tidy`...")
 	local uv = vim.loop
 	local stdout = uv.new_pipe(false)
 	local stderr = uv.new_pipe(false)
