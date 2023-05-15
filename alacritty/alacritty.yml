@@ -1,13 +1,11 @@
-# vi: ft=yaml
-#
 env:
   TERM: xterm-256color
 
 colors:
   cursor:
-    cursor: '#ffffff'
+    cursor: "#ffffff"
   primary:
-    background: '0x1d2021'
+    background: "0x1d2021"
 
 window:
   padding:
@@ -15,13 +13,11 @@ window:
     y: 5
   dynamic_padding: true
   opacity: 0.97
-  decorations: none
   title: terminal
-  dynamic_title: true 
+  dynamic_title: true
   dimensions:
-   columns: 240
-   lines: 80
-  startup_mode: Maximized
+    columns: 240
+    lines: 80
 
 scrolling:
   history: 10000
@@ -30,12 +26,12 @@ scrolling:
 
 tabspaces: 4
 
-bell:
-  duration: 100
-  color: '#22212C'
-  command:
-    program: afplay
-    args: ["/System/Library/Sounds/Tink.aiff"]
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"
 
 font:
   normal:
@@ -57,22 +53,22 @@ cursor:
 live_config_reload: true
 
 key_bindings:
-  - { key: N,        mods: Command, action: CreateNewWindow }
-  - { key: E,        mods: Alt,     chars: "\x1be"          }
-  - { key: Y,        mods: Alt,     chars: "\x1by"          }
-  - { key: F,        mods: Alt,     chars: "\x1bf"          }
-  - { key: B,        mods: Alt,     chars: "\x1bb"          }
-  - { key: L,        mods: Alt,     chars: "\x1bl"          }
-  - { key: O,        mods: Alt,     chars: "\x1bo"          }
-  - { key: W,        mods: Alt,     chars: "\x1bw"          }
-  - { key: D,        mods: Alt,     chars: "\x1bd"          }
-  - { key: S,        mods: Alt,     chars: "\x1bs"          }
-  - { key: H,        mods: Alt,     chars: "\x1bh"          }
-  - { key: P,        mods: Alt,     chars: "\x1bp"          }
-  - { key: V,        mods: Alt,     chars: "\x1bv"          }
-  - { key: T,        mods: Alt,     chars: "\x1bt"          }
-  - { key: U,        mods: Alt,     chars: "\x1bu"          }
-  - { key: C,        mods: Alt,     chars: "\x1bc"          }
+  - { key: N, mods: Command, action: CreateNewWindow }
+  - { key: E, mods: Alt, chars: "\x1be" }
+  - { key: Y, mods: Alt, chars: "\x1by" }
+  - { key: F, mods: Alt, chars: "\x1bf" }
+  - { key: B, mods: Alt, chars: "\x1bb" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: O, mods: Alt, chars: "\x1bo" }
+  - { key: W, mods: Alt, chars: "\x1bw" }
+  - { key: D, mods: Alt, chars: "\x1bd" }
+  - { key: S, mods: Alt, chars: "\x1bs" }
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: P, mods: Alt, chars: "\x1bp" }
+  - { key: V, mods: Alt, chars: "\x1bv" }
+  - { key: T, mods: Alt, chars: "\x1bt" }
+  - { key: U, mods: Alt, chars: "\x1bu" }
+  - { key: C, mods: Alt, chars: "\x1bc" }
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
