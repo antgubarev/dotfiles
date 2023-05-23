@@ -1,20 +1,22 @@
-# prompt
+# additional sources 
 source ~/.zsh/prompt.sh
+source ~/.zsh/.env.sh
+source /usr/local/share/zsh-abbr/zsh-abbr.zsh
+
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
+# options
+setopt share_history # share command history between sessions
 
 # alias
 alias czrc="nvim ~/.zshrc"
 alias czsh="nvim ~/.zsh/"
 alias cvm="nvim ~/.config/nvim/"
 
-# secrets
-source ~/.zsh/.env.sh
-
-# abbr
-source /usr/local/share/zsh-abbr/zsh-abbr.zsh
-
-for function in ~/.zsh/functions/*; do
-  source $function
-done
+#gpg
+export GPG_TTY=$(tty)
 
 #protobuf
 export PATH="$PATH:$(go env GOPATH)/bin"
