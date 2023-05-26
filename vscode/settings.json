@@ -44,8 +44,12 @@
         "Dockerfile*": "dockerfile"
     },
     "files.exclude": {
-        "**/.DS_Store": true,
-        "**/.git": true,
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/CVS": false,
+        "**/Thumbs.db": false
     },
     "search.exclude": {
         "**/node_modules": true,
@@ -301,6 +305,28 @@
             "commands": [
                 "bookmarks.list"
             ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "t"
+            ],
+            "commands": [
+                "testing.runAtCursor"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
         }
     ],
     "vim.leader": "<space>",
@@ -321,4 +347,6 @@
     "[python]": {
         "editor.formatOnType": true
     },
+    "gitlens.currentLine.enabled": false,
+    "gitlens.currentLine.pullRequests.enabled": false,
 }

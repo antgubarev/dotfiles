@@ -16,3 +16,8 @@ gcor() {
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+gps() {
+	local branch=$(git rev-parse --abbrev-ref HEAD)
+	print -z "git push origin $branch"
+}
