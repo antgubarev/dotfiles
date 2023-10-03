@@ -25,9 +25,37 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 #lf
-# https://github.com/gokcehan/lf/wiki/Tutorial#working-directory
 source ~/.config/lf/lfcd.sh
 export LF_BOOKMARK_PATH=$HOME'/.config/lf/.bookmarks'
+
+_zlf() {
+   emulate -L zsh
+   local d=$(mktemp -d) || return 1
+   {
+      mkfifo -m 600 $d/fifo || return 1
+      tmux split -bf zsh -c "exec {ZLE_FIFO}>$d/fifo; export ZLE_FIFO; exec lf" || return 1
+      local fd
+      exec {fd}<$d/fifo
+      zle -Fw $fd _zlf_handler
+   } always {
+      rm -rf $d
+   }
+}
+zle -N _zlf
+bindkey '^k' _zlf
+
+_zlf_handler() {
+   emulate -L zsh
+   local line
+   if ! read -r line <&$1; then
+      zle -F $1
+      exec {1}<&-
+      return 1
+   fi
+   eval $line
+   zle -R
+}
+zle -N _zlf_handler
 
 # bat
 export BAT_THEME='Visual Studio Dark+'
@@ -70,3 +98,12 @@ fi
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/Users/antgubarev/yandex-cloud/path.bash.inc' ]; then source '/Users/antgubarev/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/antgubarev/yandex-cloud/completion.zsh.inc' ]; then source '/Users/antgubarev/yandex-cloud/completion.zsh.inc'; fi
+
+
+

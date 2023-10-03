@@ -1,47 +1,17 @@
 {
     "workbench.startupEditor": "newUntitledFile",
     "editor.minimap.enabled": false,
-    "go.autocompleteUnimportedPackages": true,
-    "go.formatTool": "gofmt",
-    "go.logging.level": "verbose",
-    "go.editorContextMenuCommands": {
-        "fillStruct": true,
-        "playground": false
-    },
-    "go.useLanguageServer": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.explorerKind": "external",
     "security.workspace.trust.untrustedFiles": "open",
-    "go.enableCodeLens": {
-        "runtest": false
-    },
     "window.newWindowDimensions": "inherit",
-    "go.toolsManagement.autoUpdate": true,
-    "gopls": {
-        "formatting.gofumpt": true,
-        "usePlaceholders": true,
-        "staticcheck": true,
-        "hoverKind": "FullDocumentation",
-        //"ui.completion.usePlaceholders": true,
-        "ui.navigation.importShortcut": "Definition",
-        "ui.semanticTokens": true,
-        "buildFlags": [
-            //"-tags=integration",
-            //"-tags=e2e_test",
-        ]
-    },
-    "go.addTags": {
-        "tags": "json,db",
-        "options": "json=omitempty",
-        "promptForTags": true,
-        "transform": "snakecase"
-    },
     "window.nativeTabs": true,
     "files.associations": {
         "*.tpl": "gohtml",
         "CHANGELOG": "markdown",
         "README": "markdown",
-        "Dockerfile*": "dockerfile"
+        "Dockerfile*": "dockerfile",
+        "*.pb.yml": "ansible",
     },
     "files.exclude": {
         "**/.DS_Store": false,
@@ -55,12 +25,37 @@
         "**/node_modules": true,
         "**/vendor": true,
         ".history": true,
+        ".dev": true
     },
+    "diffEditor.codeLens": true,
+    "editor.cursorStyle": "underline",
+    "editor.autoClosingDelete": "never",
+    "editor.autoIndent": "brackets",
+    "editor.hover.delay": 600,
+    "editor.linkedEditing": true,
+    "editor.renderControlCharacters": false,
+    "editor.renderLineHighlight": "all",
+    "editor.scrollbar.horizontal": "visible",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "workbench.tips.enabled": false,
+    "workbench.view.alwaysShowHeaderActions": true,
+    "editor.guides.bracketPairs": true,
+    "editor.hover.enabled": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.matchBrackets": "near",
+    "editor.bracketPairColorization.enabled": false,
+    "workbench.sideBar.location": "right",
+    "editor.lineNumbers": "relative",
+    "editor.smoothScrolling": true,
+    "extensions.ignoreRecommendations": true,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.currentLine.pullRequests.enabled": false,
+    // golang
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
         "-v",
-        // "--config=/your/gosrc/folder/.golangci.yml", // for golangci-lint
-        // "--config=/your/gosrc/folder/.revive.toml",  // for revive
     ],
     "go.lintOnSave": "package",
     "go.coverageOptions": "showUncoveredCodeOnly",
@@ -68,7 +63,7 @@
     "go.testFlags": [
         "-v",
         "-cover",
-        "-count=1", // enable this to disable test caching
+        "-count=1",
     ],
     "[go]": {
         "editor.codeActionsOnSave": {
@@ -76,7 +71,6 @@
         },
         "editor.defaultFormatter": "golang.go",
         "editor.formatOnSave": true,
-        // Optional: disable snippets with 'none', as they conflict with completion ranking.
         "editor.snippetSuggestions": "inline",
     },
     "[go.mod]": {
@@ -85,52 +79,58 @@
         },
         "editor.formatOnSave": true,
     },
-    "diffEditor.codeLens": true,
-    "editor.cursorStyle": "underline",
-    "editor.autoClosingDelete": "never",
-    "editor.autoIndent": "brackets",
-    "editor.hover.delay": 600,
-    "editor.linkedEditing": true,
-    "editor.renderControlCharacters": true,
-    "editor.renderLineHighlight": "all",
-    "editor.scrollbar.horizontal": "visible",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "workbench.tips.enabled": false,
-    "workbench.view.alwaysShowHeaderActions": true,
-    "editor.guides.bracketPairs": true,
+    "go.toolsManagement.autoUpdate": true,
+    "go.formatTool": "gofmt",
+    "go.logging.level": "verbose",
+    "go.editorContextMenuCommands": {
+        "fillStruct": true,
+        "playground": false
+    },
+    "go.enableCodeLens": {
+        "runtest": false
+    },
+    "go.useLanguageServer": true,
+    "gopls": {
+        "formatting.gofumpt": true,
+        "usePlaceholders": true,
+        "staticcheck": true,
+        "hoverKind": "FullDocumentation",
+        "ui.navigation.importShortcut": "Definition",
+        "ui.semanticTokens": true,
+        "buildFlags": [
+            "-tags=integration",
+        ]
+    },
+    "go.addTags": {
+        "tags": "json,db",
+        "options": "json=omitempty",
+        "promptForTags": true,
+        "transform": "snakecase"
+    },
+    // ---- golang
+    // filetype's settings
+    "[python]": {
+        "editor.formatOnType": true
+    },
     "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
         "editor.autoIndent": "full"
     },
     "[sql]": {
         "editor.defaultFormatter": "mtxr.sqltools"
     },
-    "local-history.daysLimit": 10,
-    "local-history.exclude": [
-        "**/.history/**",
-        "**/.vscode/**",
-        "**/node_modules/**",
-        "**/typings/**",
-        "**/out/**",
-        "**/Code/User/**",
-        "**/vendor/**"
-    ],
-    // "multiCommand.commands": [
-    //     {
-    //         "key": "Enter",
-    //         "command": "extension.multiCommand.execute",
-    //         "args": {
-    //             "sequence": [
-    //                 "filesExplorer.openFilePreserveFocus",
-    //                 "workbench.action.closeSidebar"
-    //             ]
-    //         },
-    //         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus"
-    //     },
-    // ],
-    "editor.hover.enabled": false,
-    "editor.hideCursorInOverviewRuler": true,
-    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "[json]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false
+    },
+    "[terraform]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    // vim
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
@@ -332,21 +332,17 @@
     "vim.leader": "<space>",
     "vim.scroll": 10,
     "vim.smartRelativeLine": true,
-    "vim.visualModeKeyBindings": [],
     "vim.statusBarColors.easymotionmode": "#007acc",
     "vim.cursorStylePerMode.insert": "line",
     "vim.cursorStylePerMode.replace": "underline",
-    // ---
-    "editor.matchBrackets": "near",
-    "editor.bracketPairColorization.enabled": false,
-    "workbench.sideBar.location": "right",
-    "editor.lineNumbers": "relative",
-    "editor.smoothScrolling": true,
-    "extensions.ignoreRecommendations": true,
     "vim.autoindent": false,
-    "[python]": {
-        "editor.formatOnType": true
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-show-information-expiration": "2023-08-07T09:46:29.006Z"
     },
-    "gitlens.currentLine.enabled": false,
-    "gitlens.currentLine.pullRequests.enabled": false,
+    "testing.automaticallyOpenPeekView": "never",
+    "yaml.format.enable": false,
+    "editor.renderWhitespace": "all",
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    // --- vim
 }

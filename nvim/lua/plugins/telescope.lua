@@ -27,9 +27,9 @@ require("telescope").load_extension("fzf")
 
 local k = require("user.utils").keymap
 
-k("n", "<leader>tff", ":Telescope find_files<CR>")
+k("n", "<leader>tf", ":Telescope find_files<CR>")
 k("n", "<leader>tof", ":Telescope oldfiles<CR>")
-k("n", "<leader>tlg", ":Telescope live_grep<CR>")
+k("n", "<leader>ff", ":Telescope live_grep<CR>")
 k("n", "<leader>tb", ":Telescope buffers<CR>")
 k("n", "<leader>tht", ":Telescope help_tags<CR>")
 k("n", "<leader>tts", ":Telescope treesitter<CR>")

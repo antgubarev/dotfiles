@@ -1,7 +1,7 @@
 #!/bin/bash
 
-_get_container() {
-
+kwc() {
+	export KUBECONFIG="$HOME/.kube/$1"
 }
 
 kdes() {

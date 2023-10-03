@@ -5,6 +5,9 @@ set shell sh
 set hidden!
 set previewer ~/.config/lf/bat.sh
 
+# copy
+#cmd paste $cp-p --lf-paste $id
+
 # delete
 #cmd trash %set -f; mv $fx ~/.trash
 cmd delete ${{
@@ -14,23 +17,29 @@ cmd delete ${{
     read ans
     [ $ans = "y" ] && mv $fx ~/.trash
 }}
-
 map d delete
+
+# create dir
+cmd mkdir ${{
+    set -f
+    printf "enter dir name:"
+    read ans
+    mkdir -p $ans
+}}
 
 # bookmarks
 cmd bookmark_jump ${{
-	path=$(ls $LF_BOOKMARK_PATH | fzf)
-   res="$(cat $LF_BOOKMARK_PATH/$path)"
-   lf -remote "send $id cd \"$res\""
+    path=$(ls $LF_BOOKMARK_PATH | fzf)
+    res="$(cat $LF_BOOKMARK_PATH/$path)"
+    lf -remote "send $id cd \"$res\""
 }}
-
-map bj bookmark_jump
 
 cmd bookmark_create ${{
    read ans
    echo $PWD > "$LF_BOOKMARK_PATH/$ans"
 }}
 
+map bj bookmark_jump
 map bc bookmark_create
 
 #fzf
@@ -46,3 +55,26 @@ cmd fzf_jump ${{
     lf -remote "send $id $cmd \"$res\""
 }}
 map <c-f> :fzf_jump
+
+# zsh
+cmd zle-cd %printf 'cd %q && zle reset-prompt\n' "$PWD" >&$ZLE_FIFO
+
+cmd zle-insert-relative %{{
+    for f in $fx; do
+        printf 'LBUFFER+="${LBUFFER:+ }${(q)$(realpath %q --relative-to=$PWD)}"\n' "$f" >&$ZLE_FIFO
+    done
+}}
+
+cmd zle-insert-absolute %{{
+    for f in $fx; do
+        printf 'LBUFFER+="${LBUFFER:+ }%q"\n' "$f" >&$ZLE_FIFO
+    done
+}}
+
+cmd zle-init :{{
+    map . zle-cd
+    map a zle-insert-relative
+    map A zle-insert-absolute
+}}
+
+&[[ -n "$ZLE_FIFO" ]] && lf -remote "send $id zle-init"
