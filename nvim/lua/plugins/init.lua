@@ -18,7 +18,6 @@ return require("packer").startup(function(use)
     use("rafamadriz/friendly-snippets")
     use("ray-x/lsp_signature.nvim")
     use("chr4/nginx.vim")
-    use("MunifTanjim/prettier.nvim")
     use("jose-elias-alvarez/null-ls.nvim")
     use("folke/neodev.nvim")
 
@@ -35,7 +34,10 @@ return require("packer").startup(function(use)
     use("folke/which-key.nvim")
 
     -- View
-    use("nvim-lualine/lualine.nvim")
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    })
     use("kyazdani42/nvim-web-devicons")
     use({
         "nvim-treesitter/nvim-treesitter",
@@ -46,7 +48,16 @@ return require("packer").startup(function(use)
     use("Mofiqul/vscode.nvim")
 
     -- Navigation
-    use("kyazdani42/nvim-tree.lua")
+    -- use("kyazdani42/nvim-tree.lua")
+    use({
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
+    })
     use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
     use({
@@ -54,7 +65,6 @@ return require("packer").startup(function(use)
         run = "make",
     })
     use("karb94/neoscroll.nvim")
-    use("akinsho/bufferline.nvim")
     use("preservim/tagbar")
     use("phaazon/hop.nvim")
 

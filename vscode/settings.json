@@ -344,5 +344,6 @@
     "editor.renderWhitespace": "all",
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
+    "workbench.colorTheme": "Github Light Theme",
     // --- vim
 }

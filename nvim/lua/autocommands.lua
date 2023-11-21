@@ -10,15 +10,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- filetypes
 local ftGroup = vim.api.nvim_create_augroup("filetype_group", { clear = false })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*/sites-enabled/*.conf",
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "*/sites-enabled/*.conf", "nginx.conf" },
     command = "set filetype=nginx",
     group = ftGroup,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "*.tsx", "*.jsx" },
-    command = "set filetype=typescriptreact",
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*.yaml",
+    command = "setlocal ts=2 sts=2 sw=2 expandtab",
+    group = ftGroup,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*.bats",
+    command = "set filetype=sh",
     group = ftGroup,
 })
 
@@ -43,7 +49,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 local formatGroup = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
---- vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
 vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = vim.api.nvim_get_current_buf(),
     group = formatGroup,
@@ -74,8 +79,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
     callback = function()
         vim.cmd([[
-         nnoremap <silent> <buffer> q :close<CR>
-         set nobuflisted
-            ]])
+		   nnoremap <silent> <buffer> q :close<CR>
+			set nobuflisted
+	   ]])
     end,
 })

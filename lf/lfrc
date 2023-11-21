@@ -15,12 +15,12 @@ cmd delete ${{
     printf "$fx\n"
     printf "delete?[y/n]"
     read ans
-    [ $ans = "y" ] && mv $fx ~/.trash
+    [ $ans = "y" ] && rm -rf $fx
 }}
 map d delete
 
 # create dir
-cmd mkdir ${{
+cmd md ${{
     set -f
     printf "enter dir name:"
     read ans

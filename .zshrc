@@ -1,7 +1,8 @@
-# additional sources 
+# additional sources
 source ~/.zsh/prompt.sh
 source ~/.zsh/.env.sh
 source /usr/local/share/zsh-abbr/zsh-abbr.zsh
+source /usr/local/opt/forgit/share/forgit/forgit.plugin.zsh
 
 for function in ~/.zsh/functions/*; do
   source $function
@@ -23,6 +24,26 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 # psql
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# forgit
+forgit_log=glo
+forgit_diff=gd
+forgit_add=ga
+forgit_reset_head=grh
+forgit_ignore=gi
+forgit_checkout_file=gcf
+forgit_checkout_branch=gcb
+forgit_branch_delete=gbd
+forgit_checkout_tag=gct
+forgit_checkout_commit=gcoc
+forgit_revert_commit=grc
+forgit_clean=gclean
+forgit_stash_show=gss
+forgit_stash_push=gsp
+forgit_cherry_pick=gcp
+forgit_rebase=grb
+forgit_blame=gbl
+forgit_fixup=gfu
 
 #lf
 source ~/.config/lf/lfcd.sh
@@ -107,3 +128,6 @@ if [ -f '/Users/antgubarev/yandex-cloud/completion.zsh.inc' ]; then source '/Use
 
 
 
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

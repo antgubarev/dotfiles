@@ -13,28 +13,28 @@ t["zb"] = { "zb", { "250" } }
 require("neoscroll.config").set_mappings(t)
 
 --- NvimTree
-require("nvim-tree").setup({
-	actions = {
-		open_file = {
-			quit_on_open = true,
-		},
-	},
-	view = {
-		float = {
-			enable = true,
-			open_win_config = {
-				relative = "editor",
-				border = "rounded",
-				width = 90,
-				height = 130,
-				row = 100,
-				col = 200,
-			},
-		},
-	},
-})
+-- require("nvim-tree").setup({
+-- 	actions = {
+-- 		open_file = {
+-- 			quit_on_open = true,
+-- 		},
+-- 	},
+-- 	view = {
+-- 		float = {
+-- 			enable = true,
+-- 			open_win_config = {
+-- 				relative = "editor",
+-- 				border = "rounded",
+-- 				width = 90,
+-- 				height = 130,
+-- 				row = 100,
+-- 				col = 200,
+-- 			},
+-- 		},
+-- 	},
+-- })
 
-k("n", "<leader>vv", ":NvimTreeToggle<CR>")
+-- k("n", "<leader>vv", ":NvimTreeToggle<CR>")
 
 require("which-key").setup({})
 

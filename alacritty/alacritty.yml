@@ -16,8 +16,8 @@ window:
   title: terminal
   dynamic_title: true
   dimensions:
-    columns: 240
-    lines: 80
+    columns: 250
+    lines: 100
 
 scrolling:
   history: 10000
@@ -35,14 +35,14 @@ shell:
 
 font:
   normal:
-    family: Hack Nerd Font
+    family: FiraCode Nerd Font
+    #style: Regular
   bold:
-    family: Hack Nerd Font
-    style: Regular
+    family: FiraCode Nerd Font
   italic:
-    family: Hack Nerd Font
+    family: FiraCode Nerd Font
   bold_italic:
-    family: Hack Nerd Font
+    family: FiraCode Nerd Font
   size: 13.0
 
 cursor:

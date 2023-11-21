@@ -10,10 +10,9 @@ k("n", "<S-l>", ":bnext<CR>")
 k("n", "<S-h>", ":bprevious<CR>")
 
 -- save and quit
-k("n", "<leader>s", ":write<CR>")
-k("n", "<leader>S", ":wall<CR>")
-k("n", "<leader>w", ":bd<CR>")
-k("n", "<leader>W", ":bd!<CR>")
+k("n", "<leader>w", ":wall<CR>")
+k("n", "<leader>q", ":bd<CR>")
+k("n", "<leader>Q", ":bd!<CR>")
 
 -- clipboard
 k("v", "y", '"+y')

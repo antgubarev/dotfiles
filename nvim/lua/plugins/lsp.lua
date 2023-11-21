@@ -4,6 +4,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
+
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -93,13 +94,6 @@ require("lspconfig")["bashls"].setup({
     on_attach = on_attach,
 })
 
-require("lspconfig")["tsserver"].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-    root_dir = require("lspconfig/util").root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
-})
-
 local runtime_path = vim.split(package.path, ";", {})
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
@@ -108,14 +102,47 @@ require("lspconfig")["lua_ls"].setup({
     on_attach = on_attach,
     settings = {
         Lua = {
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME,
+                    ".undodir",
+                },
+            },
+            telemetry = { enable = false },
             completion = {
                 callSnippet = "Replace",
             },
-            telemetry = { enable = false },
             hint = {
                 enable = true,
             },
+            diagnostics = {
+                globals = { "vim" },
+            },
         },
+    },
+})
+
+require("lspconfig")["yamlls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        yaml = {
+            schemaStore = {
+                url = "https://www.schemastore.org/api/json/catalog.json",
+                enable = true,
+            },
+        },
+    },
+})
+
+require("lspconfig")["jsonls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "vscode-json-language-server", "--stdio" },
+    filetypes = { "json", "jsonc" },
+    init_options = {
+        provideFormatter = false, -- i use prettier
     },
 })
 
@@ -124,12 +151,10 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.fish_indent,
+        null_ls.builtins.formatting.prettier,
     },
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
 require("neodev").setup()
-
--- vim.api.nvim_set_var("go_def_mode", "gopls")
--- vim.api.nvim_set_var("go_info_mode", "gopls")
